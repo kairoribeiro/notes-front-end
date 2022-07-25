@@ -21,7 +21,7 @@ const AddNote = (props) => {
     const handleSubmit = async e => {
         e.preventDefault()
         try {
-          //call to back end
+          props.handleAddNote(formData)
           navigate('/')
         } catch (err) {
             console.log(err)
