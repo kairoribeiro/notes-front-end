@@ -8,6 +8,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import AddNote from './pages/AddNote/AddNote'
 import * as noteService from './services/noteService'
+import NoteList from './pages/NoteList/NoteList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -26,7 +27,7 @@ const App = () => {
       setNotes(noteData)
     }
     fetchAllNotes()
-  })
+  },[])
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
@@ -46,6 +47,7 @@ const App = () => {
       <main>
       <Routes>
         <Route path="/add" element={<AddNote handleAddNote={handleAddNote} />} />
+        <Route path="/" element={<NoteList notes={notes} />} />
         <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
         <Route path="/login"element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />}/>
