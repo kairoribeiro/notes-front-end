@@ -20,6 +20,14 @@ const App = () => {
     navigate('/')
   }
 
+  useEffect(() => {
+    const fetchAllNotes = async () => {
+      const noteData = await noteService.getAll()
+      setNotes(noteData)
+    }
+    fetchAllNotes()
+  })
+
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
