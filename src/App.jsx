@@ -37,7 +37,13 @@ const App = () => {
     const newNote = await noteService.create(noteData)
     setNotes([...notes, newNote])
     navigate('/')
+  }
 
+  const handleDeleteNote = async noteId => {
+    const deletedNote = await noteService.deleteNote(noteId)
+    const newNotesArray = notes.filter(note => note._id !== deletedNote._id)
+    setNotes(newNotesArray)
+    navigate('/')
   }
 
   return (
@@ -47,7 +53,7 @@ const App = () => {
       <main>
       <Routes>
         <Route path="/add" element={<AddNote handleAddNote={handleAddNote} />} />
-        <Route path="/" element={<NoteList notes={notes} />} />
+        <Route path="/" element={<NoteList user={user} notes={notes} handleDeleteNote={handleDeleteNote} />} />
         <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
         <Route path="/login"element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />}/>

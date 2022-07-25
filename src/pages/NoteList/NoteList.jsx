@@ -8,7 +8,7 @@ const NoteList = (props) => {
     <h1>Notes</h1>
     <div>
     {props.notes.map(note =>
-        <NoteCard key={note._id} note={note}/>
+        <NoteCard user={props.user} key={note._id} note={note} handleDeleteNote={props.handleDeleteNote} />
     )}
     </div>
     </>
