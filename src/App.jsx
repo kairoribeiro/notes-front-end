@@ -9,6 +9,7 @@ import * as authService from './services/authService'
 import AddNote from './pages/AddNote/AddNote'
 import * as noteService from './services/noteService'
 import NoteList from './pages/NoteList/NoteList'
+import EditNote from './pages/EditNote/EditNote'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -46,6 +47,14 @@ const App = () => {
     navigate('/')
   }
 
+  const handleUpdateNote = async (noteData) => {
+    const updatedNote = await noteService.updateNote(noteData)
+    const newNotesArray = notes.map(note => note._id === updatedNote._id ? updatedNote : note)
+    // use array to set state
+    setNotes(newNotesArray)
+    navigate('/')
+  }
+
   return (
     <>
       <div>
@@ -53,6 +62,7 @@ const App = () => {
       <main>
       <Routes>
         <Route path="/add" element={<AddNote handleAddNote={handleAddNote} />} />
+        <Route path="/edit" element={<EditNote handleUpdateNote={handleUpdateNote} />} />
         <Route path="/" element={<NoteList user={user} notes={notes} handleDeleteNote={handleDeleteNote} />} />
         <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
         <Route path="/login"element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
