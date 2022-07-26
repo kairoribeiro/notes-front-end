@@ -25,10 +25,10 @@ const EditNote = (props) => {
         }
     }
 
-    const {title, date, note} = formData
+    const {title, note} = formData
 
     const isFormInvalid = () => {
-    return !(title && date && note)
+    return !(title && note)
   }
 
 
@@ -40,11 +40,6 @@ const EditNote = (props) => {
     <div className=''>
         <label htmlFor="title" className=''>Title</label>
         <input type="text" autoComplete="off" id="title" value={title} name="title" onChange={handleChange}/>
-    </div>
-
-    <div className=''>
-        <label htmlFor="date" className=''>date</label>
-        <input type="date" autoComplete="off" id="date" value={date} name="date" onChange={handleChange}/>
     </div>
 
     <div className=''>

@@ -7,7 +7,6 @@ const AddNote = (props) => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         title: '',
-        date: '',
         note: '',
     })
     
@@ -28,35 +27,31 @@ const AddNote = (props) => {
         }
     }
 
-    const {title, date, note} = formData
+    const {title, note} = formData
 
     const isFormInvalid = () => {
-    return !(title && date && note)
+    return !(title && note)
   }
 
 
     return (
     <>
     <h1>Add Note</h1>
+
     <form onSubmit={handleSubmit} autoComplete='off'>
 
     <div className=''>
-        <label htmlFor="title" className=''>Title</label>
+        <label htmlFor="title" className=''>Title </label>
         <input type="text" autoComplete="off" id="title" value={title} name="title" onChange={handleChange}/>
     </div>
 
     <div className=''>
-        <label htmlFor="date" className=''>date</label>
-        <input type="date" autoComplete="off" id="date" value={date} name="date" onChange={handleChange}/>
-    </div>
-
-    <div className=''>
-        <label htmlFor="note" className=''>Note</label>
+        <label htmlFor="note" className=''>Note </label>
         <textarea  autoComplete="off" id="note" value={note} name="note" onChange={handleChange}/>
     </div>
 
     <div className='btn'>
-        <button disabled={isFormInvalid()} className={styles.button}>Add Note</button>
+        <button disabled={isFormInvalid()} className={styles.button}>Save Note</button>
     </div>
 
     </form>

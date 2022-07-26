@@ -1,17 +1,21 @@
-.container {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-  
-  .label,
-  .button {
-    margin-right: .5rem;
-  }
-  
-  .inputContainer {
-    margin-bottom: 1rem;
-  }
-  
+.add-card {
+  background-color: blue;
+}
+
+form {
+  background-color: gray;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+form div {
+  margin: 20px;
+  padding: 10px;
+}
+
+textarea {
+  width: 80%;
+  height: 40vw;
+  border: none;
+  font-size: 25px;
+}

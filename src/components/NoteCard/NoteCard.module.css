@@ -1,0 +1,12 @@
+main {
+    background-color: rgb(192, 183, 183);
+    height: 100vw;
+
+}
+
+main div div {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+}
