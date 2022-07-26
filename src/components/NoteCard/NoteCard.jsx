@@ -4,7 +4,7 @@ import styles from './NoteCard.module.css'
 const NoteCard = ({note, user, handleDeleteNote}) => {
     return (
         <>
-        {/* {user?.profile === note.author._id && */}
+        {user?.profile === note.author._id &&
         <div className="card">
             <div className="card-header">
 
@@ -18,7 +18,7 @@ const NoteCard = ({note, user, handleDeleteNote}) => {
                 <Link className="btn" to="/edit" state={{note}}>See Note</Link>
             </div>
         </div>
-        {/* } */}
+        }
 
         </>
 
